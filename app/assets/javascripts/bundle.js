@@ -9761,6 +9761,14 @@ var _react = __webpack_require__(49);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _home_page = __webpack_require__(279);
+
+var _home_page2 = _interopRequireDefault(_home_page);
+
+var _header = __webpack_require__(280);
+
+var _header2 = _interopRequireDefault(_header);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import {
@@ -9774,7 +9782,8 @@ var App = function App() {
   return _react2.default.createElement(
     'div',
     null,
-    'Welcome to Url Shortener!'
+    _react2.default.createElement(_header2.default, null),
+    _react2.default.createElement(_home_page2.default, null)
   );
 };
 
@@ -29115,6 +29124,278 @@ var ShortUrlReducer = function ShortUrlReducer() {
 };
 
 exports.default = ShortUrlReducer;
+
+/***/ }),
+/* 277 */,
+/* 278 */,
+/* 279 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(49);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _shortener_container = __webpack_require__(283);
+
+var _shortener_container2 = _interopRequireDefault(_shortener_container);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HomePage = function (_React$Component) {
+  _inherits(HomePage, _React$Component);
+
+  function HomePage(props) {
+    _classCallCheck(this, HomePage);
+
+    return _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).call(this, props));
+  }
+
+  _createClass(HomePage, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        'Home Page',
+        _react2.default.createElement(_shortener_container2.default, null)
+      );
+    }
+  }]);
+
+  return HomePage;
+}(_react2.default.Component);
+
+exports.default = HomePage;
+
+/***/ }),
+/* 280 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(49);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Header = function (_React$Component) {
+  _inherits(Header, _React$Component);
+
+  function Header(props) {
+    _classCallCheck(this, Header);
+
+    return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+  }
+
+  _createClass(Header, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        'header'
+      );
+    }
+  }]);
+
+  return Header;
+}(_react2.default.Component);
+
+exports.default = Header;
+
+/***/ }),
+/* 281 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(49);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Shortener = function (_React$Component) {
+  _inherits(Shortener, _React$Component);
+
+  function Shortener(props) {
+    _classCallCheck(this, Shortener);
+
+    return _possibleConstructorReturn(this, (Shortener.__proto__ || Object.getPrototypeOf(Shortener)).call(this, props));
+  }
+
+  _createClass(Shortener, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        null,
+        _react2.default.createElement("input", { type: "text" })
+      );
+    }
+  }]);
+
+  return Shortener;
+}(_react2.default.Component);
+
+exports.default = Shortener;
+
+/***/ }),
+/* 282 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.updateLead = exports.createShortUrl = exports.requestShortUrls = exports.receiveShortUrls = exports.receiveShortUrl = undefined;
+
+var _short_url_api_util = __webpack_require__(284);
+
+var APIUtil = _interopRequireWildcard(_short_url_api_util);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var RECEIVE_SHORT_URL = 'RECEIVE_SHORT_URL';
+var RECEIVE_SHORT_URLS = 'RECEIVE_SHORT_URLS';
+
+var receiveShortUrl = exports.receiveShortUrl = function receiveShortUrl(shortUrl) {
+  return {
+    type: RECEIVE_SHORT_URL,
+    shortUrl: shortUrl
+  };
+};
+
+var receiveShortUrls = exports.receiveShortUrls = function receiveShortUrls(shortUrls) {
+  return {
+    type: RECEIVE_SHORT_URLS,
+    shortUrls: shortUrls
+  };
+};
+
+var requestShortUrls = exports.requestShortUrls = function requestShortUrls() {
+  return function (dispatch) {
+    return APIUtil.fetchShortUrls().then(function (shortUrls) {
+      return dispatch(receiveShortUrls(shortUrls));
+    });
+  };
+};
+
+var createShortUrl = exports.createShortUrl = function createShortUrl(shortUrl) {
+  return function (dispatch) {
+    return APIUtil.createShortUrl(shortUrl).then(function (shortUrl) {
+      return dispatch(receiveShortUrls(shortUrl));
+    });
+  };
+};
+
+var updateLead = exports.updateLead = function updateLead(shortUrl) {
+  return function (dispatch) {
+    return APIUtil.updateShortUrl(shortUrl).then(function (shortUrl) {
+      return dispatch(receiveShortUrls(shortUrl));
+    });
+  };
+};
+
+/***/ }),
+/* 283 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = __webpack_require__(215);
+
+var _shortener = __webpack_require__(281);
+
+var _shortener2 = _interopRequireDefault(_shortener);
+
+var _short_url_actions = __webpack_require__(282);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    createShortUrl: function createShortUrl(shortUrl) {
+      return dispatch((0, _short_url_actions.createShortUrl)(shortUrl));
+    }
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(_shortener2.default);
+
+/***/ }),
+/* 284 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var fetchShortUrls = exports.fetchShortUrls = function fetchShortUrls() {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/shortUrls/'
+  });
+};
+
+var createShortUrl = exports.createShortUrl = function createShortUrl(shortUrl) {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/shortUrls',
+    data: { shortUrl: shortUrl }
+  });
+};
 
 /***/ })
 /******/ ]);

@@ -6,10 +6,14 @@ import React from 'react';
 //   Link
 // } from 'react-router-dom';
 
+import HomePage from './home_page/home_page';
+import Header from './header/header';
+
 const App = () => (
 
   <div>
-    Welcome to Url Shortener!
+    <Header />
+    <HomePage />
   </div>
 
 );

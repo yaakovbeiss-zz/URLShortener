@@ -29550,6 +29550,30 @@ var ShortUrlsIndex = function (_React$Component) {
       return _react2.default.createElement(
         'urlsIndex',
         { className: 'urls-index-container' },
+        _react2.default.createElement(
+          'section',
+          { className: 'urls-index-container-header' },
+          _react2.default.createElement(
+            'span',
+            null,
+            'Original URL'
+          ),
+          _react2.default.createElement(
+            'span',
+            null,
+            'Created'
+          ),
+          _react2.default.createElement(
+            'span',
+            null,
+            'Short URL'
+          ),
+          _react2.default.createElement(
+            'span',
+            null,
+            'Visits'
+          )
+        ),
         shortUrls.map(function (shortUrl) {
           return _react2.default.createElement(_short_url2.default, { key: shortUrl.id, shortUrl: shortUrl });
         })
@@ -29597,6 +29621,16 @@ var ShortUrl = function (_React$Component) {
   }
 
   _createClass(ShortUrl, [{
+    key: "condensedUrl",
+    value: function condensedUrl() {
+      var longUrl = this.props.shortUrl.long_url;
+      if (longUrl.length > 30) {
+        return longUrl.slice(0, 30) + "...";
+      } else {
+        return longUrl;
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var shortUrl = this.props.shortUrl;
@@ -29606,7 +29640,11 @@ var ShortUrl = function (_React$Component) {
         _react2.default.createElement(
           "span",
           null,
-          shortUrl.long_url
+          _react2.default.createElement(
+            "a",
+            { href: shortUrl.long_url, target: "_blank" },
+            this.condensedUrl()
+          )
         ),
         _react2.default.createElement(
           "span",
@@ -29617,7 +29655,11 @@ var ShortUrl = function (_React$Component) {
         _react2.default.createElement(
           "span",
           null,
-          shortUrl.short_url
+          _react2.default.createElement(
+            "a",
+            { href: shortUrl.short_url, target: "_blank" },
+            shortUrl.short_url
+          )
         ),
         _react2.default.createElement(
           "span",

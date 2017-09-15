@@ -5,6 +5,7 @@ class Api::ShortUrlsController < ApplicationController
     @short_url.short_url = ShortUrl.shorten_url(@short_url.long_url)
 
     if @short_url.save
+      @short_urls = ShortUrl.all.order('created_at DESC')
       render :index
     else
       render json: @short_url, status: 422
@@ -22,7 +23,7 @@ class Api::ShortUrlsController < ApplicationController
     end
 
     def index
-      @short_urls = ShortUrl.all
+      @short_urls = ShortUrl.all.order('created_at DESC')
     end
 
 

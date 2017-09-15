@@ -1,7 +1,7 @@
 import * as APIUtil from '../util/short_url_api_util';
 
-const RECEIVE_SHORT_URL = 'RECEIVE_SHORT_URL'
-const RECEIVE_SHORT_URLS = 'RECEIVE_SHORT_URLS'
+export const RECEIVE_SHORT_URL = 'RECEIVE_SHORT_URL'
+export const RECEIVE_SHORT_URLS = 'RECEIVE_SHORT_URLS'
 
 export const receiveShortUrl = (shortUrl) => ({
   type: RECEIVE_SHORT_URL,

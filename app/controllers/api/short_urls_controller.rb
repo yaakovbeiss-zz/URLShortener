@@ -3,7 +3,7 @@ class Api::ShortUrlsController < ApplicationController
   def create
     @short_url = ShortUrl.new(short_url_params)
     @short_url.short_url = ShortUrl.shorten_url(@short_url.long_url)
-    
+
     if @short_url.save
       render :index
     else
@@ -19,6 +19,10 @@ class Api::ShortUrlsController < ApplicationController
       else
         render json: @short_url, status: 422
       end
+    end
+
+    def index
+      @short_urls = ShortUrl.all
     end
 
 

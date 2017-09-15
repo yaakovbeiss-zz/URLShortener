@@ -15,10 +15,20 @@ class Shortener extends React.Component {
     });
   }
 
+  sanitizeUrl(longUrl) {
+    let sanitizedUrl = $.trim(longUrl);
+
+    sanitizedUrl = sanitizedUrl.toLowerCase(sanitizedUrl).replace(/(https?:\/\/)|(www\.)/, "");
+    if (sanitizedUrl[sanitizedUrl.length - 1] == "/") {
+      sanitizedUrl = sanitizedUrl.slice(sanitizedUrl.length - 1);
+    }
+    return `http://${sanitizedUrl}`
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    const longUrl = this.state;
-    this.props.createShortUrl(longUrl);
+    const long_url = this.sanitizeUrl(this.state.long_url);
+    this.props.createShortUrl({long_url});
   }
 
   render() {

@@ -29296,11 +29296,22 @@ var Shortener = function (_React$Component) {
       };
     }
   }, {
+    key: 'sanitizeUrl',
+    value: function sanitizeUrl(longUrl) {
+      var sanitizedUrl = $.trim(longUrl);
+
+      sanitizedUrl = sanitizedUrl.toLowerCase(sanitizedUrl).replace(/(https?:\/\/)|(www\.)/, "");
+      if (sanitizedUrl[sanitizedUrl.length - 1] == "/") {
+        sanitizedUrl = sanitizedUrl.slice(sanitizedUrl.length - 1);
+      }
+      return 'http://' + sanitizedUrl;
+    }
+  }, {
     key: 'handleSubmit',
     value: function handleSubmit(e) {
       e.preventDefault();
-      var longUrl = this.state;
-      this.props.createShortUrl(longUrl);
+      var long_url = this.sanitizeUrl(this.state.long_url);
+      this.props.createShortUrl({ long_url: long_url });
     }
   }, {
     key: 'render',

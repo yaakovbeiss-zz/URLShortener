@@ -20,14 +20,14 @@ export const requestShortUrls = () => dispatch => (
     ))
 );
 
-export const createShortUrl = (shortUrl) => dispatch => (
-  APIUtil.createShortUrl(shortUrl)
+export const createShortUrl = (longUrl) => dispatch => (
+  APIUtil.createShortUrl(longUrl)
     .then((shortUrl) => (
       dispatch(receiveShortUrls(shortUrl))
     ))
 );
 
-export const updateLead = (shortUrl) => dispatch => (
+export const updateShortUrl = (shortUrl) => dispatch => (
   APIUtil.updateShortUrl(shortUrl)
     .then((shortUrl) => (
       dispatch(receiveShortUrls(shortUrl))

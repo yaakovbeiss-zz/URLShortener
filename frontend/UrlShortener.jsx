@@ -8,9 +8,7 @@ import App from './components/app';
   const Root = ( {store} ) => {
     return (
         <Provider store={store}>
-          <HashRouter>
             <App />
-          </HashRouter>
         </Provider>
     );
   };

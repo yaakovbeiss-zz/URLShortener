@@ -9834,11 +9834,7 @@ var Root = function Root(_ref) {
   return _react2.default.createElement(
     _reactRedux.Provider,
     { store: store },
-    _react2.default.createElement(
-      _reactRouterDom.HashRouter,
-      null,
-      _react2.default.createElement(_app2.default, null)
-    )
+    _react2.default.createElement(_app2.default, null)
   );
 };
 
@@ -29171,7 +29167,6 @@ var HomePage = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        'Home Page',
         _react2.default.createElement(_shortener_container2.default, null)
       );
     }
@@ -29217,12 +29212,20 @@ var Header = function (_React$Component) {
   }
 
   _createClass(Header, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
+        "div",
         null,
-        'header'
+        _react2.default.createElement(
+          "section",
+          { className: "header-container" },
+          _react2.default.createElement(
+            "span",
+            null,
+            "URL Shortener"
+          )
+        )
       );
     }
   }]);
@@ -29251,6 +29254,8 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -29263,16 +29268,64 @@ var Shortener = function (_React$Component) {
   function Shortener(props) {
     _classCallCheck(this, Shortener);
 
-    return _possibleConstructorReturn(this, (Shortener.__proto__ || Object.getPrototypeOf(Shortener)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Shortener.__proto__ || Object.getPrototypeOf(Shortener)).call(this, props));
+
+    _this.state = {
+      long_url: ''
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    return _this;
   }
 
   _createClass(Shortener, [{
-    key: "render",
+    key: 'update',
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
+    }
+  }, {
+    key: 'handleSubmit',
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var longUrl = this.state;
+      this.props.createShortUrl(longUrl);
+    }
+  }, {
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
+        'div',
         null,
-        _react2.default.createElement("input", { type: "text" })
+        _react2.default.createElement(
+          'section',
+          { className: 'shortener-container' },
+          _react2.default.createElement(
+            'section',
+            { className: 'shortener' },
+            _react2.default.createElement(
+              'h1',
+              null,
+              'Simplify your links'
+            ),
+            _react2.default.createElement(
+              'form',
+              { className: 'shortener-form' },
+              _react2.default.createElement('input', { type: 'text',
+                className: 'shortener-input',
+                onChange: this.update('long_url'),
+                placeholder: 'Your original URL here'
+              }),
+              _react2.default.createElement(
+                'button',
+                { className: 'shortener-button', onClick: this.handleSubmit },
+                'SHORTEN URL'
+              )
+            )
+          )
+        )
       );
     }
   }]);
@@ -29292,7 +29345,7 @@ exports.default = Shortener;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateLead = exports.createShortUrl = exports.requestShortUrls = exports.receiveShortUrls = exports.receiveShortUrl = undefined;
+exports.updateShortUrl = exports.createShortUrl = exports.requestShortUrls = exports.receiveShortUrls = exports.receiveShortUrl = undefined;
 
 var _short_url_api_util = __webpack_require__(284);
 
@@ -29325,15 +29378,15 @@ var requestShortUrls = exports.requestShortUrls = function requestShortUrls() {
   };
 };
 
-var createShortUrl = exports.createShortUrl = function createShortUrl(shortUrl) {
+var createShortUrl = exports.createShortUrl = function createShortUrl(longUrl) {
   return function (dispatch) {
-    return APIUtil.createShortUrl(shortUrl).then(function (shortUrl) {
+    return APIUtil.createShortUrl(longUrl).then(function (shortUrl) {
       return dispatch(receiveShortUrls(shortUrl));
     });
   };
 };
 
-var updateLead = exports.updateLead = function updateLead(shortUrl) {
+var updateShortUrl = exports.updateShortUrl = function updateShortUrl(shortUrl) {
   return function (dispatch) {
     return APIUtil.updateShortUrl(shortUrl).then(function (shortUrl) {
       return dispatch(receiveShortUrls(shortUrl));
@@ -29385,15 +29438,15 @@ Object.defineProperty(exports, "__esModule", {
 var fetchShortUrls = exports.fetchShortUrls = function fetchShortUrls() {
   return $.ajax({
     method: 'GET',
-    url: 'api/shortUrls/'
+    url: 'api/short_urls/'
   });
 };
 
-var createShortUrl = exports.createShortUrl = function createShortUrl(shortUrl) {
+var createShortUrl = exports.createShortUrl = function createShortUrl(short_url) {
   return $.ajax({
     method: 'POST',
-    url: 'api/shortUrls',
-    data: { shortUrl: shortUrl }
+    url: 'api/short_urls',
+    data: { short_url: short_url }
   });
 };
 

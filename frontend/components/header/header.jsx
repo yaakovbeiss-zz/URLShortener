@@ -8,7 +8,9 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-        header
+        <section className="header-container">
+        <span>URL Shortener</span>
+        </section>
       </div>
     )
   }

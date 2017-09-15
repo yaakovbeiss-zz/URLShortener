@@ -1,0 +1,58 @@
+h1 {
+  font-size: 30px;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0;
+  height: 36px;
+  color: white;
+  font-weight: 100;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+}
+.shortener-container {
+  height: 118px;
+  padding: 30px 24px 45px 24px;
+  background-color: #366ed1;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+.shortener {
+  margin: 0 12% 0 12%;
+}
+.shortener-form {
+  margin: 10px 0 5px;
+}
+.shortener-input {
+  width: calc(100% - 32px);
+  max-width: 550px;
+  height: 36px;
+  margin-right: 20px;
+  padding: 0 16px;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 36px;
+  vertical-align: middle;
+  border: none;
+  border-radius: 2px;
+  outline: none;
+}
+.shortener-button {
+  text-align: center;
+  line-height: 36px;
+  padding: 0 16px;
+  color: #039be5;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  vertical-align: middle;
+  will-change: box-shadow;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
+  background: white;
+  border: none;
+  border-radius: 2px;
+  height: 36px;
+  font-weight: 500;
+}

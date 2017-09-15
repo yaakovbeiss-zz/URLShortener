@@ -1,14 +1,14 @@
 export const fetchShortUrls = () => (
   $.ajax({
     method: 'GET',
-    url: `api/shortUrls/`
+    url: `api/short_urls/`
   })
 );
 
-export const createShortUrl = (shortUrl) => (
+export const createShortUrl = (short_url) => (
   $.ajax({
     method: 'POST',
-    url: 'api/shortUrls',
-    data: { shortUrl }
+    url: 'api/short_urls',
+    data: { short_url }
   })
 )

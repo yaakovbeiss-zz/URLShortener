@@ -23,7 +23,7 @@ class Api::ShortUrlsController < ApplicationController
     end
 
     def index
-      @short_urls = ShortUrl.all.order('created_at DESC')
+      @short_urls = ShortUrl.all.order('views DESC')
     end
 
 

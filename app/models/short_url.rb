@@ -7,7 +7,7 @@ class ShortUrl < ApplicationRecord
 
   def shorten_url
       short_url = self.id.to_s(36)
-      "minifi.herokuapp.com/#{short_url}"
+      "#{short_url}"
   end
 
 end

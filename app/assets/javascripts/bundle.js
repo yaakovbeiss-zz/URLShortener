@@ -29118,6 +29118,7 @@ var ShortUrlReducer = function ShortUrlReducer() {
         entities: action.shortUrls
       });
       break;
+
     default:
       return state;
   }
@@ -29365,7 +29366,7 @@ exports.default = Shortener;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateShortUrl = exports.createShortUrl = exports.requestShortUrls = exports.receiveShortUrls = exports.receiveShortUrl = exports.RECEIVE_SHORT_URLS = exports.RECEIVE_SHORT_URL = undefined;
+exports.updateShortUrl = exports.createShortUrl = exports.requestMostViews = exports.requestShortUrls = exports.receiveShortUrls = exports.receiveShortUrl = exports.RECEIVE_SHORT_URLS = exports.RECEIVE_SHORT_URL = undefined;
 
 var _short_url_api_util = __webpack_require__(284);
 
@@ -29393,6 +29394,13 @@ var receiveShortUrls = exports.receiveShortUrls = function receiveShortUrls(shor
 var requestShortUrls = exports.requestShortUrls = function requestShortUrls() {
   return function (dispatch) {
     return APIUtil.fetchShortUrls().then(function (shortUrls) {
+      return dispatch(receiveShortUrls(shortUrls));
+    });
+  };
+};
+var requestMostViews = exports.requestMostViews = function requestMostViews() {
+  return function (dispatch) {
+    return APIUtil.fetchMostViews().then(function (shortUrls) {
       return dispatch(receiveShortUrls(shortUrls));
     });
   };
@@ -29462,6 +29470,13 @@ var fetchShortUrls = exports.fetchShortUrls = function fetchShortUrls() {
   });
 };
 
+var fetchMostViews = exports.fetchMostViews = function fetchMostViews() {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/most_views/'
+  });
+};
+
 var createShortUrl = exports.createShortUrl = function createShortUrl(short_url) {
   return $.ajax({
     method: 'POST',
@@ -29505,6 +29520,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     requestShortUrls: function requestShortUrls() {
       return dispatch((0, _short_url_actions.requestShortUrls)());
+    },
+    requestMostViews: function requestMostViews() {
+      return dispatch((0, _short_url_actions.requestMostViews)());
     }
   };
 };
@@ -29546,13 +29564,21 @@ var ShortUrlsIndex = function (_React$Component) {
   function ShortUrlsIndex(props) {
     _classCallCheck(this, ShortUrlsIndex);
 
-    return _possibleConstructorReturn(this, (ShortUrlsIndex.__proto__ || Object.getPrototypeOf(ShortUrlsIndex)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ShortUrlsIndex.__proto__ || Object.getPrototypeOf(ShortUrlsIndex)).call(this, props));
+
+    _this.handleClick = _this.handleClick.bind(_this);
+    return _this;
   }
 
   _createClass(ShortUrlsIndex, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.props.requestShortUrls();
+    }
+  }, {
+    key: 'handleClick',
+    value: function handleClick() {
+      this.props.requestMostViews();
     }
   }, {
     key: 'render',
@@ -29581,7 +29607,7 @@ var ShortUrlsIndex = function (_React$Component) {
           ),
           _react2.default.createElement(
             'span',
-            { className: 'fourth-column' },
+            { onClick: this.handleClick, className: 'fourth-column' },
             'All Clicks'
           )
         ),

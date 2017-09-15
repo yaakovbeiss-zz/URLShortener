@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     resources :short_urls, only: [:create, :index, :update]
+    get "/most_views", to: "short_urls#most_views"
   end
 
 end

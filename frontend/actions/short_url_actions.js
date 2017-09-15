@@ -19,6 +19,12 @@ export const requestShortUrls = () => dispatch => (
       dispatch(receiveShortUrls(shortUrls))
     ))
 );
+export const requestMostViews = () => dispatch => (
+  APIUtil.fetchMostViews()
+    .then((shortUrls) => (
+      dispatch(receiveShortUrls(shortUrls))
+    ))
+);
 
 export const createShortUrl = (longUrl) => dispatch => (
   APIUtil.createShortUrl(longUrl)

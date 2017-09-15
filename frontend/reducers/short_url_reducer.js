@@ -14,6 +14,7 @@ const ShortUrlReducer = ( state = defaultState, action ) => {
         entities: action.shortUrls
       })
       break;
+
     default:
       return state;
   }

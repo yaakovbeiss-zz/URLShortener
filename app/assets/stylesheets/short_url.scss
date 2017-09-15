@@ -31,6 +31,16 @@
 .short-url-container:hover {
   background-color: #eee;
 }
+
+.short-url-container img {
+  display: none;
+}
+.short-url-container:hover img {
+  display: inline;
+  opacity: .54;
+  margin-left: 5px;
+  cursor: pointer;
+}
 .short-url-container > span a {
   color: #039be5;
   padding-left: 15px;
@@ -43,6 +53,8 @@
 }
 .third-column {
   width: 267px;
+  display: flex;
+  align-items: center;
 }
 .fourth-column {
   width: 99px;

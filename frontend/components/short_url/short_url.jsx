@@ -19,7 +19,7 @@ class ShortUrl extends React.Component {
       <div className="short-url-container">
         <span className="first-column"><a href={shortUrl.long_url} target="_blank">{this.condensedUrl()}</a></span>
         <span className="second-column">{shortUrl.created_at} ago</span>
-        <span className="third-column"><a href={shortUrl.short_url} target="_blank">{shortUrl.short_url}</a></span>
+        <span className="third-column"><a href={'https://' + shortUrl.short_url} target="_blank">{shortUrl.short_url}</a></span>
         <span className="fourth-column">{shortUrl.views}</span>
       </div>
     )

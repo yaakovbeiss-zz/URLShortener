@@ -29668,7 +29668,7 @@ var ShortUrl = function (_React$Component) {
           { className: "third-column" },
           _react2.default.createElement(
             "a",
-            { href: shortUrl.short_url, target: "_blank" },
+            { href: 'https://' + shortUrl.short_url, target: "_blank" },
             shortUrl.short_url
           )
         ),

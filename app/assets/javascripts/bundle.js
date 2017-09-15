@@ -29582,7 +29582,7 @@ var ShortUrlsIndex = function (_React$Component) {
           _react2.default.createElement(
             'span',
             { className: 'fourth-column' },
-            'Visits'
+            'All Clicks'
           )
         ),
         shortUrls.map(function (shortUrl) {

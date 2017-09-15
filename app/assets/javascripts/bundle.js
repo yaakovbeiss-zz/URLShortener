@@ -29555,22 +29555,22 @@ var ShortUrlsIndex = function (_React$Component) {
           { className: 'urls-index-container-header' },
           _react2.default.createElement(
             'span',
-            null,
+            { className: 'first-column' },
             'Original URL'
           ),
           _react2.default.createElement(
             'span',
-            null,
+            { className: 'second-column' },
             'Created'
           ),
           _react2.default.createElement(
             'span',
-            null,
+            { className: 'third-column' },
             'Short URL'
           ),
           _react2.default.createElement(
             'span',
-            null,
+            { className: 'fourth-column' },
             'Visits'
           )
         ),
@@ -29639,7 +29639,7 @@ var ShortUrl = function (_React$Component) {
         { className: "short-url-container" },
         _react2.default.createElement(
           "span",
-          null,
+          { className: "first-column" },
           _react2.default.createElement(
             "a",
             { href: shortUrl.long_url, target: "_blank" },
@@ -29648,13 +29648,13 @@ var ShortUrl = function (_React$Component) {
         ),
         _react2.default.createElement(
           "span",
-          null,
+          { className: "second-column" },
           shortUrl.created_at,
           " ago"
         ),
         _react2.default.createElement(
           "span",
-          null,
+          { className: "third-column" },
           _react2.default.createElement(
             "a",
             { href: shortUrl.short_url, target: "_blank" },
@@ -29663,7 +29663,7 @@ var ShortUrl = function (_React$Component) {
         ),
         _react2.default.createElement(
           "span",
-          null,
+          { className: "fourth-column" },
           shortUrl.views
         )
       );

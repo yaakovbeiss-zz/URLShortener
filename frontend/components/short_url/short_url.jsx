@@ -17,10 +17,10 @@ class ShortUrl extends React.Component {
     const shortUrl = this.props.shortUrl;
     return (
       <div className="short-url-container">
-        <span><a  href={shortUrl.long_url} target="_blank">{this.condensedUrl()}</a></span>
-        <span>{shortUrl.created_at} ago</span>
-        <span><a href={shortUrl.short_url} target="_blank">{shortUrl.short_url}</a></span>
-        <span>{shortUrl.views}</span>
+        <span className="first-column"><a  href={shortUrl.long_url} target="_blank">{this.condensedUrl()}</a></span>
+        <span className="second-column">{shortUrl.created_at} ago</span>
+        <span className="third-column"><a href={shortUrl.short_url} target="_blank">{shortUrl.short_url}</a></span>
+        <span className="fourth-column">{shortUrl.views}</span>
       </div>
     )
   }

@@ -15,10 +15,10 @@ class ShortUrlsIndex extends React.Component {
     return (
       <urlsIndex className="urls-index-container">
         <section className="urls-index-container-header">
-          <span>Original URL</span>
-          <span>Created</span>
-          <span>Short URL</span>
-          <span>Visits</span>
+          <span className="first-column">Original URL</span>
+          <span className="second-column">Created</span>
+          <span className="third-column">Short URL</span>
+          <span className="fourth-column">Visits</span>
         </section>
         {shortUrls.map((shortUrl) => <ShortUrl key={shortUrl.id} shortUrl={shortUrl} />)}
       </urlsIndex>

@@ -18,7 +18,9 @@ class ShortUrlsIndex extends React.Component {
   }
 
   handleNextTen() {
-    this.setState({ startIndex: this.state.startIndex + 10, endIndex: this.state.endIndex + 10})
+    if (this.state.endIndex < this.props.shortUrl.length) {
+      this.setState({ startIndex: this.state.startIndex + 10, endIndex: this.state.endIndex + 10})
+    }
   }
   handlePrevTen() {
     if (this.state.endIndex > 10){
@@ -38,9 +40,13 @@ class ShortUrlsIndex extends React.Component {
         </section>
         {shortUrls.map((shortUrl) => <ShortUrl key={shortUrl.id} shortUrl={shortUrl} order={"recent"} />)}
         <section className="next-prev">
-          {this.state.startIndex + 1}-{this.state.endIndex} of {this.props.shortUrl.length}
-          <button onClick={this.handlePrevTen}>Prev</button>
-          <button onClick={this.handleNextTen}>Next</button>
+          <button onClick={this.handlePrevTen}>
+            <img src={window.images.prev_arrow}></img>
+          </button>
+          {this.state.startIndex + 1} - {this.state.endIndex} of {this.props.shortUrl.length}
+          <button onClick={this.handleNextTen}>
+            <img src={window.images.next_arrow}></img>
+          </button>
         </section>
       </urlsIndex>
     )

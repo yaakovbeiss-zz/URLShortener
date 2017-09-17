@@ -15,9 +15,9 @@ require 'nokogiri'
   urls = doc.xpath("//tbody//tr//td//a")[0..100]
   urls.each do |url|
     new_url = url.children.text
-    random_views = rand(1000)
+    random_views = rand(100000)
 
-    unless filter_array.include?(new_url.downcase)
+    unless filter_array.any? {|word| new_url.include?(word)}
       short_url = ShortUrl.new({ long_url: "http://www.#{new_url}", views: random_views })
       if short_url.save
         short_url.short_url = short_url.shorten_url

@@ -1,5 +1,3 @@
-require 'base64'
-
 class ShortUrl < ApplicationRecord
 
   validates :long_url, presence: true, uniqueness: true

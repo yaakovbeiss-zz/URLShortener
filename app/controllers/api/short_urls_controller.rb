@@ -2,7 +2,7 @@ class Api::ShortUrlsController < ApplicationController
 
   def create
     @short_url = ShortUrl.new(short_url_params)
-
+    
     if @short_url.save
       @short_url.short_url = @short_url.shorten_url
       @short_url.save

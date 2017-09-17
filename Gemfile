@@ -39,7 +39,6 @@ gem 'pry-rails'
 
 gem 'nokogiri'
 
-
 group :development, :test do
 
   gem 'byebug', platform: :mri

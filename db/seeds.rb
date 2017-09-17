@@ -9,10 +9,10 @@ require 'nokogiri'
 
   require 'openssl'
   require 'open-uri'
-  filter_array = ["sex", "porn", "adult", "girl", "xxx", "xhamster"]
+  filter_array = ["sex", "porn", "adult", "girl", "xxx", "xhamster", "xvideos"]
 
   doc = Nokogiri::HTML(open('http://stuffgate.com/stuff/website/top-1000-sites', :ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE))
-  urls = doc.xpath("//tbody//tr//td//a")
+  urls = doc.xpath("//tbody//tr//td//a")[0..100]
   urls.each do |url|
     new_url = url.children.text
     random_views = rand(1000)

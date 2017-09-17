@@ -9,7 +9,7 @@ require 'nokogiri'
 
   require 'openssl'
   require 'open-uri'
-  filter_array = ["sex", "porn", "adult", "girl", "xxx"]
+  filter_array = ["sex", "porn", "adult", "girl", "xxx", "xhamster"]
 
   doc = Nokogiri::HTML(open('http://stuffgate.com/stuff/website/top-1000-sites', :ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE))
   urls = doc.xpath("//tbody//tr//td//a")

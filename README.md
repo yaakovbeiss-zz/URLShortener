@@ -1,25 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # URLShortener
+  Welcome to Minifi URLShortener!
+
+  No setup or downloading needed, just check out the live site at: [minifi live](https://minifi.herokuapp.com/)
+
+  Click on Most Clicks to view the shortened links with the most hits,
+
+  and Most Recent to view links created most recently.

@@ -29788,7 +29788,7 @@ var ShortUrl = function (_React$Component) {
           { className: 'first-column' },
           _react2.default.createElement(
             'a',
-            { href: "http://" + shortUrl.long_url, target: '_blank' },
+            { href: shortUrl.long_url, target: '_blank' },
             this.condensedUrl()
           )
         ),
@@ -29798,7 +29798,7 @@ var ShortUrl = function (_React$Component) {
           { className: 'third-column' },
           _react2.default.createElement(
             'a',
-            { href: "http://" + shortUrl.short_url, target: '_blank' },
+            { href: shortUrl.short_url, target: '_blank' },
             shortUrl.short_url
           ),
           _react2.default.createElement(

@@ -29,9 +29,9 @@ class ShortUrl extends React.Component {
     const shortUrl = this.props.shortUrl;
     return (
       <div className="short-url-container">
-        <span className="first-column"><a href={"http://" + shortUrl.long_url} target="_blank">{this.condensedUrl()}</a></span>
+        <span className="first-column"><a href={shortUrl.long_url} target="_blank">{this.condensedUrl()}</a></span>
         {this.createdAtOrUpdatedAt()}
-        <span className="third-column"><a href={"http://" + shortUrl.short_url} target="_blank">{shortUrl.short_url}</a>
+        <span className="third-column"><a href={shortUrl.short_url} target="_blank">{shortUrl.short_url}</a>
           <CopyToClipboard text={shortUrl.short_url}
             onCopy={() => this.setState({copied: true})}>
             <img src="https://png.icons8.com/copy/androidL/24" title="Copy" width="24" height="24" />

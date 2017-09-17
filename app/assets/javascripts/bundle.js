@@ -29631,7 +29631,9 @@ var ShortUrlsIndex = function (_React$Component) {
   }, {
     key: 'handleNextTen',
     value: function handleNextTen() {
+
       if (this.state.endIndex < this.props.shortUrl.length) {
+
         this.setState({ startIndex: this.state.startIndex + 10, endIndex: this.state.endIndex + 10 });
       }
     }
@@ -29646,6 +29648,8 @@ var ShortUrlsIndex = function (_React$Component) {
     key: 'render',
     value: function render() {
       var shortUrls = this.props.shortUrl.slice(this.state.startIndex, this.state.endIndex);
+      var count = this.props.shortUrl.length;
+      var endCount = this.state.endIndex > count ? count : this.state.endIndex;
       return _react2.default.createElement(
         'urlsIndex',
         { className: 'urls-index-container' },
@@ -29686,7 +29690,7 @@ var ShortUrlsIndex = function (_React$Component) {
           ),
           this.state.startIndex + 1,
           ' - ',
-          this.state.endIndex,
+          endCount,
           ' of ',
           this.props.shortUrl.length,
           _react2.default.createElement(
@@ -30127,6 +30131,8 @@ var MostViewedUrlsIndex = function (_React$Component) {
     key: 'render',
     value: function render() {
       var shortUrls = this.props.shortUrl.slice(this.state.startIndex, this.state.endIndex);
+      var count = this.props.shortUrl.length;
+      var endCount = this.state.endIndex > count ? count : this.state.endIndex;
       return _react2.default.createElement(
         'urlsIndex',
         { className: 'urls-index-container' },
@@ -30167,7 +30173,7 @@ var MostViewedUrlsIndex = function (_React$Component) {
           ),
           this.state.startIndex + 1,
           ' - ',
-          this.state.endIndex,
+          endCount,
           ' of ',
           this.props.shortUrl.length,
           _react2.default.createElement(

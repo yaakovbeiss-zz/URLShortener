@@ -30,6 +30,8 @@ class MostViewedUrlsIndex extends React.Component {
 
   render() {
     const shortUrls = this.props.shortUrl.slice(this.state.startIndex, this.state.endIndex);
+    const count = this.props.shortUrl.length;
+    const endCount = this.state.endIndex > count ? count : this.state.endIndex;
     return (
       <urlsIndex className="urls-index-container">
         <section className="urls-index-container-header">
@@ -43,7 +45,7 @@ class MostViewedUrlsIndex extends React.Component {
           <button onClick={this.handlePrevTen}>
             <img src={window.images.prev_arrow}></img>
           </button>
-          {this.state.startIndex + 1} - {this.state.endIndex} of {this.props.shortUrl.length}
+          {this.state.startIndex + 1} - {endCount} of {this.props.shortUrl.length}
           <button onClick={this.handleNextTen}>
             <img src={window.images.next_arrow}></img>
           </button>

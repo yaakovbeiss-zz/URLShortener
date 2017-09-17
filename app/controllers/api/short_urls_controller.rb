@@ -25,7 +25,7 @@ class Api::ShortUrlsController < ApplicationController
     end
 
     def index
-      @short_urls = ShortUrl.all.order('created_at DESC').limit(10)
+      @short_urls = ShortUrl.all.order('created_at DESC')
     end
 
     def most_views

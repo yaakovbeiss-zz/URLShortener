@@ -29153,6 +29153,10 @@ var _short_urls_index_container = __webpack_require__(287);
 
 var _short_urls_index_container2 = _interopRequireDefault(_short_urls_index_container);
 
+var _most_viewed_urls_index_container = __webpack_require__(296);
+
+var _most_viewed_urls_index_container2 = _interopRequireDefault(_most_viewed_urls_index_container);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29167,17 +29171,60 @@ var HomePage = function (_React$Component) {
   function HomePage(props) {
     _classCallCheck(this, HomePage);
 
-    return _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).call(this, props));
+
+    _this.state = {
+      selected: 'recent'
+    };
+    _this.handleClick = _this.handleClick.bind(_this);
+    return _this;
   }
 
   _createClass(HomePage, [{
+    key: 'handleClick',
+    value: function handleClick(field) {
+      var _this2 = this;
+
+      return function (e) {
+        _this2.setState({ selected: field });
+      };
+    }
+  }, {
+    key: 'className',
+    value: function className(field) {
+      return this.state.selected === field ? "button selected" : "button";
+    }
+  }, {
+    key: 'urlsIndex',
+    value: function urlsIndex() {
+      if (this.state.selected === 'recent') {
+        return _react2.default.createElement(_short_urls_index_container2.default, null);
+      } else {
+        return _react2.default.createElement(_most_viewed_urls_index_container2.default, null);
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'home-page' },
         _react2.default.createElement(_shortener_container2.default, null),
-        _react2.default.createElement(_short_urls_index_container2.default, null)
+        _react2.default.createElement(
+          'section',
+          { className: 'index-container' },
+          _react2.default.createElement(
+            'button',
+            { className: this.className('recent'), onClick: this.handleClick('recent') },
+            'Most Recent'
+          ),
+          _react2.default.createElement(
+            'button',
+            { className: this.className('mostClicks'), onClick: this.handleClick('mostClicks') },
+            'Most Clicks'
+          )
+        ),
+        this.urlsIndex()
       );
     }
   }]);
@@ -29233,7 +29280,7 @@ var Header = function (_React$Component) {
           _react2.default.createElement(
             "span",
             null,
-            "URL Shortener"
+            "minifi URL Shortener"
           )
         )
       );
@@ -29341,7 +29388,7 @@ var Shortener = function (_React$Component) {
               }),
               _react2.default.createElement(
                 'button',
-                { className: 'shortener-button', onClick: this.handleSubmit },
+                { className: 'button', onClick: this.handleSubmit },
                 'SHORTEN URL'
               )
             )
@@ -29566,6 +29613,9 @@ var ShortUrlsIndex = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (ShortUrlsIndex.__proto__ || Object.getPrototypeOf(ShortUrlsIndex)).call(this, props));
 
+    _this.state = {
+      selected: 'created_at'
+    };
     _this.handleClick = _this.handleClick.bind(_this);
     return _this;
   }
@@ -29577,7 +29627,7 @@ var ShortUrlsIndex = function (_React$Component) {
     }
   }, {
     key: 'handleClick',
-    value: function handleClick() {
+    value: function handleClick(e) {
       this.props.requestMostViews();
     }
   }, {
@@ -29607,12 +29657,12 @@ var ShortUrlsIndex = function (_React$Component) {
           ),
           _react2.default.createElement(
             'span',
-            { onClick: this.handleClick, className: 'fourth-column' },
+            { onClick: this.handleClick, value: 'views', className: 'fourth-column' },
             'All Clicks'
           )
         ),
         shortUrls.map(function (shortUrl) {
-          return _react2.default.createElement(_short_url2.default, { key: shortUrl.id, shortUrl: shortUrl });
+          return _react2.default.createElement(_short_url2.default, { key: shortUrl.id, shortUrl: shortUrl, order: "recent" });
         })
       );
     }
@@ -29678,8 +29728,21 @@ var ShortUrl = function (_React$Component) {
       }
     }
   }, {
-    key: 'handleClick',
-    value: function handleClick() {}
+    key: 'createdAtOrUpdatedAt',
+    value: function createdAtOrUpdatedAt() {
+      var shortUrl = this.props.shortUrl;
+      return this.props.order === 'recent' ? _react2.default.createElement(
+        'span',
+        { className: 'second-column' },
+        shortUrl.created_at,
+        ' ago'
+      ) : _react2.default.createElement(
+        'span',
+        { className: 'second-column' },
+        shortUrl.updated_at,
+        ' ago'
+      );
+    }
   }, {
     key: 'render',
     value: function render() {
@@ -29698,12 +29761,7 @@ var ShortUrl = function (_React$Component) {
             this.condensedUrl()
           )
         ),
-        _react2.default.createElement(
-          'span',
-          { className: 'second-column' },
-          shortUrl.created_at,
-          ' ago'
-        ),
+        this.createdAtOrUpdatedAt(),
         _react2.default.createElement(
           'span',
           { className: 'third-column' },
@@ -29966,6 +30024,137 @@ module.exports = function () {
   };
 };
 
+
+/***/ }),
+/* 294 */,
+/* 295 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(49);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _short_url = __webpack_require__(289);
+
+var _short_url2 = _interopRequireDefault(_short_url);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var MostViewedUrlsIndex = function (_React$Component) {
+  _inherits(MostViewedUrlsIndex, _React$Component);
+
+  function MostViewedUrlsIndex(props) {
+    _classCallCheck(this, MostViewedUrlsIndex);
+
+    var _this = _possibleConstructorReturn(this, (MostViewedUrlsIndex.__proto__ || Object.getPrototypeOf(MostViewedUrlsIndex)).call(this, props));
+
+    _this.state = {
+      selected: 'created_at'
+    };
+    return _this;
+  }
+
+  _createClass(MostViewedUrlsIndex, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.props.requestMostViews();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var shortUrls = this.props.shortUrl;
+      return _react2.default.createElement(
+        'urlsIndex',
+        { className: 'urls-index-container' },
+        _react2.default.createElement(
+          'section',
+          { className: 'urls-index-container-header' },
+          _react2.default.createElement(
+            'span',
+            { className: 'first-column' },
+            'Original URL'
+          ),
+          _react2.default.createElement(
+            'span',
+            { className: 'second-column' },
+            'Last Viewed'
+          ),
+          _react2.default.createElement(
+            'span',
+            { className: 'third-column' },
+            'Short URL'
+          ),
+          _react2.default.createElement(
+            'span',
+            { onClick: this.handleClick, value: 'views', className: 'fourth-column' },
+            'All Clicks'
+          )
+        ),
+        shortUrls.map(function (shortUrl) {
+          return _react2.default.createElement(_short_url2.default, { key: shortUrl.id, shortUrl: shortUrl, order: 'mostViews' });
+        })
+      );
+    }
+  }]);
+
+  return MostViewedUrlsIndex;
+}(_react2.default.Component);
+
+exports.default = MostViewedUrlsIndex;
+
+/***/ }),
+/* 296 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = __webpack_require__(215);
+
+var _most_viewed_urls_index = __webpack_require__(295);
+
+var _most_viewed_urls_index2 = _interopRequireDefault(_most_viewed_urls_index);
+
+var _short_url_actions = __webpack_require__(282);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(_ref) {
+  var shortUrl = _ref.shortUrl;
+
+  return {
+    shortUrl: shortUrl.entities
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    requestMostViews: function requestMostViews() {
+      return dispatch((0, _short_url_actions.requestMostViews)());
+    }
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_most_viewed_urls_index2.default);
 
 /***/ })
 /******/ ]);

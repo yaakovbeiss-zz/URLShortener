@@ -1,20 +1,15 @@
 import React from 'react';
 import ShortUrl from './short_url';
 
-class ShortUrlsIndex extends React.Component {
+class MostViewedUrlsIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state =  {
       selected: 'created_at'
     }
-    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    this.props.requestShortUrls();
-  }
-
-  handleClick(e) {
     this.props.requestMostViews();
   }
 
@@ -24,14 +19,14 @@ class ShortUrlsIndex extends React.Component {
       <urlsIndex className="urls-index-container">
         <section className="urls-index-container-header">
           <span className="first-column">Original URL</span>
-          <span className="second-column">Created</span>
+          <span className="second-column">Last Viewed</span>
           <span className="third-column">Short URL</span>
           <span onClick={this.handleClick} value="views" className="fourth-column">All Clicks</span>
         </section>
-        {shortUrls.map((shortUrl) => <ShortUrl key={shortUrl.id} shortUrl={shortUrl} order={"recent"} />)}
+        {shortUrls.map((shortUrl) => <ShortUrl key={shortUrl.id} shortUrl={shortUrl} order={'mostViews'} />)}
       </urlsIndex>
     )
   }
 }
 
-export default ShortUrlsIndex;
+export default MostViewedUrlsIndex;

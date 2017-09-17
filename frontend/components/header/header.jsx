@@ -9,7 +9,7 @@ class Header extends React.Component {
     return (
       <div>
         <section className="header-container">
-        <span>URL Shortener</span>
+        <span>minifi URL Shortener</span>
         </section>
       </div>
     )

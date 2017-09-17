@@ -43,7 +43,7 @@ class Shortener extends React.Component {
               onChange={this.update('long_url')}
               placeholder="Your original URL here"
               />
-            <button className="shortener-button" onClick={this.handleSubmit}>SHORTEN URL</button>
+            <button className="button" onClick={this.handleSubmit}>SHORTEN URL</button>
           </form>
           </section>
         </section>

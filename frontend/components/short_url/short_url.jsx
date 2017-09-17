@@ -19,8 +19,10 @@ class ShortUrl extends React.Component {
     }
   }
 
-  handleClick() {
-
+  createdAtOrUpdatedAt() {
+    const shortUrl = this.props.shortUrl
+    return this.props.order === 'recent' ? <span className="second-column">{shortUrl.created_at} ago</span> :
+    <span className="second-column">{shortUrl.updated_at} ago</span>
   }
 
   render() {
@@ -28,7 +30,7 @@ class ShortUrl extends React.Component {
     return (
       <div className="short-url-container">
         <span className="first-column"><a href={shortUrl.long_url} target="_blank">{this.condensedUrl()}</a></span>
-        <span className="second-column">{shortUrl.created_at} ago</span>
+        {this.createdAtOrUpdatedAt()}
         <span className="third-column"><a href={'https://' + shortUrl.short_url} target="_blank">{shortUrl.short_url}</a>
           <CopyToClipboard text={'https://' + this.props.shortUrl.short_url}
             onCopy={() => this.setState({copied: true})}>

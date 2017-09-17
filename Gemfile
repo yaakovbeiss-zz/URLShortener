@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'pry-rails'
 
+gem 'nokogiri'
+
 
 group :development, :test do
 

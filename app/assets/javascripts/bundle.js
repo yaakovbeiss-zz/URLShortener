@@ -29614,9 +29614,12 @@ var ShortUrlsIndex = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (ShortUrlsIndex.__proto__ || Object.getPrototypeOf(ShortUrlsIndex)).call(this, props));
 
     _this.state = {
-      selected: 'created_at'
+      selected: 'created_at',
+      startIndex: 0,
+      endIndex: 10
     };
-    _this.handleClick = _this.handleClick.bind(_this);
+    _this.handlePrevTen = _this.handlePrevTen.bind(_this);
+    _this.handleNextTen = _this.handleNextTen.bind(_this);
     return _this;
   }
 
@@ -29626,14 +29629,21 @@ var ShortUrlsIndex = function (_React$Component) {
       this.props.requestShortUrls();
     }
   }, {
-    key: 'handleClick',
-    value: function handleClick(e) {
-      this.props.requestMostViews();
+    key: 'handleNextTen',
+    value: function handleNextTen() {
+      this.setState({ startIndex: this.state.startIndex + 10, endIndex: this.state.endIndex + 10 });
+    }
+  }, {
+    key: 'handlePrevTen',
+    value: function handlePrevTen() {
+      if (this.state.endIndex > 10) {
+        this.setState({ startIndex: this.state.startIndex - 10, endIndex: this.state.endIndex - 10 });
+      }
     }
   }, {
     key: 'render',
     value: function render() {
-      var shortUrls = this.props.shortUrl;
+      var shortUrls = this.props.shortUrl.slice(this.state.startIndex, this.state.endIndex);
       return _react2.default.createElement(
         'urlsIndex',
         { className: 'urls-index-container' },
@@ -29657,13 +29667,32 @@ var ShortUrlsIndex = function (_React$Component) {
           ),
           _react2.default.createElement(
             'span',
-            { onClick: this.handleClick, value: 'views', className: 'fourth-column' },
+            { className: 'fourth-column' },
             'All Clicks'
           )
         ),
         shortUrls.map(function (shortUrl) {
           return _react2.default.createElement(_short_url2.default, { key: shortUrl.id, shortUrl: shortUrl, order: "recent" });
-        })
+        }),
+        _react2.default.createElement(
+          'section',
+          { className: 'next-prev' },
+          this.state.startIndex + 1,
+          '-',
+          this.state.endIndex,
+          ' of ',
+          this.props.shortUrl.length,
+          _react2.default.createElement(
+            'button',
+            { onClick: this.handlePrevTen },
+            'Prev'
+          ),
+          _react2.default.createElement(
+            'button',
+            { onClick: this.handleNextTen },
+            'Next'
+          )
+        )
       );
     }
   }]);

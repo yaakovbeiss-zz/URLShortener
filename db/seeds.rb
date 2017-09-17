@@ -18,7 +18,7 @@ require 'nokogiri'
     random_views = rand(1000)
 
     unless filter_array.include?(new_url.downcase)
-      short_url = ShortUrl.new({ long_url: "http://#{new_url}", views: random_views })
+      short_url = ShortUrl.new({ long_url: "http://www#{new_url}", views: random_views })
       if short_url.save
         short_url.short_url = short_url.shorten_url
         short_url.save

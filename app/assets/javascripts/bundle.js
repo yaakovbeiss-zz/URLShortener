@@ -29788,7 +29788,7 @@ var ShortUrl = function (_React$Component) {
           { className: 'first-column' },
           _react2.default.createElement(
             'a',
-            { href: shortUrl.long_url, target: '_blank' },
+            { href: "http://" + shortUrl.long_url, target: '_blank' },
             this.condensedUrl()
           )
         ),
@@ -29798,12 +29798,12 @@ var ShortUrl = function (_React$Component) {
           { className: 'third-column' },
           _react2.default.createElement(
             'a',
-            { href: 'https://' + shortUrl.short_url, target: '_blank' },
+            { href: "http://" + shortUrl.short_url, target: '_blank' },
             shortUrl.short_url
           ),
           _react2.default.createElement(
             _reactCopyToClipboard2.default,
-            { text: 'https://' + this.props.shortUrl.short_url,
+            { text: shortUrl.short_url,
               onCopy: function onCopy() {
                 return _this2.setState({ copied: true });
               } },
